@@ -1,4 +1,4 @@
-const BASE =  "http://localhost:8080/event-mng";
+const BASE = "https://be-event-mng-v2.onrender.com/event-mng";
 
 export async function apiFetch(path, options = {}) {
   const token = localStorage.getItem("token");
