@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-const BASE = "http://localhost:8080/event-mng";
+const BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/event-mng";
 
 export const getImageUrl = (url) => {
   if (!url) return "";
