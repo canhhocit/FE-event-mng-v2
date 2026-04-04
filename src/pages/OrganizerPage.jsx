@@ -88,7 +88,7 @@ export default function OrganizerPage() {
         }
       });
       await api.post("/events", data);
-      alert("Đăng kỳ sự kiện & vé thành công! Đang chờ Admin duyệt.");
+      alert("Đăng ký sự kiện & vé thành công! Hãy kiên nhẫn chờ Admin duyệt.");
       setEventFormData({
         name: "", categoryId: "", location: "", startTime: "", endTime: "",
         saleStartDate: "", saleEndDate: "", description: "", files: null,
