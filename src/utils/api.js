@@ -2,11 +2,13 @@ const BASE = "https://be-event-mng-v2.onrender.com/event-mng";
 
 export async function apiFetch(path, options = {}) {
   const token = localStorage.getItem("token");
+  const authHeader = (token && token !== "null" && token !== "undefined") ? `Bearer ${token}` : "";
+  
   const res = await fetch(`${BASE}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
-      Authorization: token ? `Bearer ${token}` : "",
+      Authorization: authHeader,
       ...options.headers,
     },
   });
