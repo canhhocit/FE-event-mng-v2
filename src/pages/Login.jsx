@@ -99,8 +99,8 @@ export default function Login() {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="card shadow-lg p-4" style={{ width: "400px" }}>
+    <div className="container d-flex justify-content-center align-items-center min-vh-100 py-4">
+      <div className="card shadow-lg p-4" style={{ width: "100%", maxWidth: "400px", margin: "15px" }}>
         <div className="text-center mb-4">
           <h3>🔞 Đăng nhập</h3>
           <p className="text-muted">Chào mừng bạn quay trở lại</p>

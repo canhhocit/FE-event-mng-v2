@@ -104,7 +104,7 @@ export default function Register() {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100">
+    <div className="container d-flex justify-content-center align-items-center min-vh-100 py-5">
       <div
         className="card shadow-lg p-4"
         style={{ maxWidth: "700px", width: "100%" }}

@@ -66,10 +66,36 @@ body {
   background-color: #0873c4;
 }
 
-/* Glassmorphism utility */
+/* Responsive Helpers */
+@media (max-width: 768px) {
+  .sidebar-container {
+    position: fixed;
+    left: -260px;
+    height: 100vh;
+    z-index: 2000;
+    transition: left 0.3s ease;
+  }
+  .sidebar-open .sidebar-container {
+    left: 0;
+  }
+  .main-content {
+    padding: 15px !important;
+  }
+}
+
+.table-responsive {
+  border-radius: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

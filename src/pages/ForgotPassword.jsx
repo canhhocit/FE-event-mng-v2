@@ -52,8 +52,8 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center vh-100" style={{ background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" }}>
-      <div className="card shadow-lg border-0" style={{ width: "400px", borderRadius: "16px" }}>
+    <div className="d-flex align-items-center justify-content-center min-vh-100 py-5" style={{ background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" }}>
+      <div className="card shadow-lg border-0" style={{ width: "100%", maxWidth: "400px", borderRadius: "16px", margin: "15px" }}>
         <div className="card-body p-5">
           <div className="text-center mb-4">
             <h3 className="fw-bold" style={{ color: "#764ba2" }}>Quên Mật Khẩu</h3>
