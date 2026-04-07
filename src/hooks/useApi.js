@@ -22,12 +22,13 @@ export const getImageUrl = (url) => {
 
 
 export function useApi() {
-  const token = localStorage.getItem("token");
+  const rawToken = localStorage.getItem("token");
+  const token = (rawToken && rawToken !== "null" && rawToken !== "undefined") ? rawToken : null;
 
   const get = useCallback(
     (path) =>
       fetch(`${BASE}${path}`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) },
       }).then((r) => r.json()),
     [token]
   );
@@ -39,7 +40,7 @@ export function useApi() {
         method: "POST",
         headers: {
           ...(isFormData ? {} : { "Content-Type": "application/json" }),
-          Authorization: `Bearer ${token}`,
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         body: isFormData ? body : JSON.stringify(body),
       }).then((r) => r.json());
@@ -54,7 +55,7 @@ export function useApi() {
         method: "PUT",
         headers: {
           ...(isFormData ? {} : { "Content-Type": "application/json" }),
-          Authorization: `Bearer ${token}`,
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         body: isFormData ? body : JSON.stringify(body),
       }).then((r) => r.json());
@@ -66,7 +67,7 @@ export function useApi() {
     (path) =>
       fetch(`${BASE}${path}`, {
         method: "PATCH",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) },
       }).then((r) => r.json()),
     [token]
   );
@@ -75,7 +76,7 @@ export function useApi() {
     (path) =>
       fetch(`${BASE}${path}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) },
       }).then((r) => r.json()),
     [token]
   );
