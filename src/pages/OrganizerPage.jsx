@@ -70,6 +70,26 @@ export default function OrganizerPage() {
 
   const handleEventSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate dates: saleStartDate < saleEndDate < startTime < endTime
+    const sStart = new Date(eventFormData.saleStartDate);
+    const sEnd = new Date(eventFormData.saleEndDate);
+    const eStart = new Date(eventFormData.startTime);
+    const eEnd = new Date(eventFormData.endTime);
+
+    if (sEnd <= sStart) {
+      alert("⚠️ Ngày KẾT THÚC bán vé phải sau ngày BẮT ĐẦU bán vé!");
+      return;
+    }
+    if (eStart <= sEnd) {
+      alert("⚠️ Thời gian DIỄN RA sự kiện phải sau khi KẾT THÚC bán vé!");
+      return;
+    }
+    if (eEnd <= eStart) {
+      alert("⚠️ Thời gian KẾT THÚC sự kiện phải sau thời gian BẮT ĐẦU diễn ra!");
+      return;
+    }
+
     setLoading(true);
     try {
       const data = new FormData();

@@ -34,13 +34,13 @@ export default function CreateEventForm({
           <div className="col-md-6">
             <div className="p-3 bg-primary bg-opacity-10 rounded-4 border border-primary border-opacity-10">
               <label className="form-label small fw-bold text-primary text-uppercase mb-2">Ngày Bắt đầu bán vé</label>
-              <input type="datetime-local" name="saleStartDate" className="form-control border-white shadow-sm" required value={formData.saleStartDate} onChange={handleChange} />
+              <input type="datetime-local" name="saleStartDate" className="form-control border-white shadow-sm" required value={formData.saleStartDate} onChange={handleChange} min={new Date().toISOString().slice(0, 16)} />
             </div>
           </div>
           <div className="col-md-6">
             <div className="p-3 bg-danger bg-opacity-10 rounded-4 border border-danger border-opacity-10">
               <label className="form-label small fw-bold text-danger text-uppercase mb-2">Ngày Kết thúc bán vé</label>
-              <input type="datetime-local" name="saleEndDate" className="form-control border-white shadow-sm" required value={formData.saleEndDate} onChange={handleChange} />
+              <input type="datetime-local" name="saleEndDate" className="form-control border-white shadow-sm" required value={formData.saleEndDate} onChange={handleChange} min={formData.saleStartDate} />
             </div>
           </div>
 
@@ -48,13 +48,13 @@ export default function CreateEventForm({
           <div className="col-md-6">
             <div className="p-3 bg-light rounded-4 border">
               <label className="form-label small fw-bold text-secondary text-uppercase mb-2">Thời gian diễn ra</label>
-              <input type="datetime-local" name="startTime" className="form-control border-white shadow-sm" required value={formData.startTime} onChange={handleChange} />
+              <input type="datetime-local" name="startTime" className="form-control border-white shadow-sm" required value={formData.startTime} onChange={handleChange} min={formData.saleEndDate} />
             </div>
           </div>
           <div className="col-md-6">
             <div className="p-3 bg-light rounded-4 border">
               <label className="form-label small fw-bold text-secondary text-uppercase mb-2">Thời gian kết thúc</label>
-              <input type="datetime-local" name="endTime" className="form-control border-white shadow-sm" required value={formData.endTime} onChange={handleChange} />
+              <input type="datetime-local" name="endTime" className="form-control border-white shadow-sm" required value={formData.endTime} onChange={handleChange} min={formData.startTime} />
             </div>
           </div>
           
