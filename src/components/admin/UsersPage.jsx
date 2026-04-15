@@ -32,6 +32,7 @@ export default function UsersPage({ api }) {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalUsers, setTotalUsers] = useState(0);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState("");
@@ -45,6 +46,7 @@ export default function UsersPage({ api }) {
     api.get(`/users?page=${page}&size=8&sort=createdAt,${order}`).then((res) => {
       setUsers(res.result?.content ?? []);
       setTotalPages(res.result?.totalPages ?? 1);
+      setTotalUsers(res.result?.totalElements ?? 0);
       setLoading(false);
     });
   }, [page, refetch, sortOrder]);
@@ -90,7 +92,7 @@ export default function UsersPage({ api }) {
       {/* Stats Row */}
       <div className="row g-3 mb-4">
         <div className="col-md-6">
-          <UserStat label="Tổng người dùng" value={users.length} color="#6c5ce7" icon="" />
+          <UserStat label="Tổng người dùng" value={totalUsers} color="#6c5ce7" icon="" />
         </div>
         <div className="col-md-6">
           <UserStat label="Ban tổ chức (Organizer)" value={users.filter(u => u.role === 'ORGANIZER').length} color="#00b894" icon="" />
