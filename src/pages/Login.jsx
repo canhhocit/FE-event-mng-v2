@@ -147,6 +147,17 @@ export default function Login() {
         <div className="text-center mt-2">
           <a href="/forgot-password" className="text-muted small text-decoration-none">Quên mật khẩu?</a>
         </div>
+        <hr className="my-3 opacity-25" />
+        <div className="text-center">
+          <a 
+            href="https://blog-guide-event-mng.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="btn btn-info btn-sm rounded-pill px-4"
+          >
+            📕 Sổ tay hướng dẫn
+          </a>
+        </div>
       </div>
     </div>
   );
