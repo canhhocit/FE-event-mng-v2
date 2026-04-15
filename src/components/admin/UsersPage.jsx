@@ -36,17 +36,18 @@ export default function UsersPage({ api }) {
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState("");
   const [disablingId, setDisablingId] = useState(null);
+  const [sortOrder, setSortOrder] = useState("asc"); // 'asc' = cũ nhất, 'desc' = mới nhất
   const [refetch, setRefetch] = useState(0);
 
   useEffect(() => {
     setLoading(true);
-    // Fetch with potential server-side search if backend supports it, else handle client-side
-    api.get(`/users?page=${page}&size=10`).then((res) => {
+    const order = sortOrder === "asc" ? "asc" : "desc";
+    api.get(`/users?page=${page}&size=8&sort=createdAt,${order}`).then((res) => {
       setUsers(res.result?.content ?? []);
       setTotalPages(res.result?.totalPages ?? 1);
       setLoading(false);
     });
-  }, [page, refetch]);
+  }, [page, refetch, sortOrder]);
 
   const handleDisable = async (username) => {
     if (!window.confirm(`Xác nhận khóa tài khoản "${username}"?`)) return;
@@ -138,7 +139,13 @@ export default function UsersPage({ api }) {
                 <th className="px-4 py-3 border-0">Người dùng</th>
                 <th className="border-0">Liên hệ</th>
                 <th className="border-0 text-center">Vai trò</th>
-                <th className="border-0">Ngày tham gia</th>
+                <th 
+                  className="border-0 cursor-pointer text-primary bg-primary bg-opacity-10" 
+                  style={{ whiteSpace: 'nowrap' }}
+                  onClick={() => setSortOrder(prev => prev === "asc" ? "desc" : "asc")}
+                >
+                  Ngày tham gia {sortOrder === "asc" ? "↑" : "↓"}
+                </th>
                 <th className="border-0 text-end px-4">Thao tác</th>
               </tr>
             </thead>

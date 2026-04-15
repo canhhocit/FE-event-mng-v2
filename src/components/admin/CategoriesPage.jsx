@@ -68,7 +68,7 @@ export default function CategoriesPage({ api }) {
     <div className="animate-fade-in p-2">
       <div className="mb-4">
         <h4 className="fw-bold mb-1">Quản lý danh mục</h4>
-        <p className="text-secondary small">Thiết lập các loại hình sự kiện để người dùng dễ dàng tìm kiếm.</p>
+        <p className="text-secondary small">Thiết lập các loại hình sự kiện</p>
       </div>
 
       <div className="row g-4">
