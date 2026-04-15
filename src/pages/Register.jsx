@@ -111,7 +111,7 @@ export default function Register() {
       >
         <div className="text-center mb-4">
           <h3>🌼 Đăng ký tài khoản</h3>
-          <p className="text-muted">Tạo tài khoản để mua sắm</p>
+          <p className="text-muted">Tạo tài khoản mới</p>
         </div>
 
         {success && <div className="alert alert-success">{success}</div>}

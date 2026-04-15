@@ -20,12 +20,12 @@ export default function OrganizerProfile({ profile, setProfile, handleProfileUpd
         </div>
         
         <div className="mb-4">
-          <label className="form-label small fw-bold text-muted text-uppercase">Địa chỉ Email</label>
-          <input type="email" className="form-control form-control-lg bg-light border-0" value={profile.email} onChange={e => setProfile({...profile, email: e.target.value})} placeholder="Vd: example@gmail.com" />
+          <label className="form-label small fw-bold text-muted text-uppercase">Email</label>
+          <input type="email" className="form-control form-control-lg bg-light border-0 text-muted" value={profile.email} onChange={e => setProfile({...profile, email: e.target.value})} placeholder="Vd: example@gmail.com" disabled />
         </div>
         
         <div className="mb-4">
-          <label className="form-label small fw-bold text-muted text-uppercase">Số điện thoại liên hệ</label>
+          <label className="form-label small fw-bold text-muted text-uppercase">Số điện thoại</label>
           <input type="text" className="form-control form-control-lg bg-light border-0" value={profile.phone} onChange={e => setProfile({...profile, phone: e.target.value})} placeholder="Vd: 0987xxx" />
         </div>
 
